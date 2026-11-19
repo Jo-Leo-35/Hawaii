@@ -42,7 +42,7 @@
 
 首次啟用：repository 的 **Settings → Pages → Source** 選 **GitHub Actions**。需要時可從 Actions 手動執行 **Validate and publish Hawaii Guide**。
 
-公開網址：<https://Jo-Leo-35.github.io/hawaii-guide/>。
+GitHub Pages 啟用後的網站網址：<https://Jo-Leo-35.github.io/Hawaii/>。
 
 ## 公開資料界線
 
