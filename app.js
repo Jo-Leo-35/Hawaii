@@ -110,7 +110,7 @@ function renderTasks() {
   }
 }
 function renderFilters(){
-  for(const [value,label] of [['all','全部'],['Leon','Leon'],['Tyson','Tyson']]){
+  for(const [value,label] of [['all','全部'],['Leo','Leo'],['Tyson','Tyson']]){
     const button=element('button','filter',label);button.type='button';
     button.setAttribute('aria-pressed',String(value===ownerFilter));
     button.addEventListener('click',()=>{ownerFilter=value;document.querySelectorAll('.filter').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));renderTasks();});

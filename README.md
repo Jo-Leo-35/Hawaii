@@ -1,6 +1,6 @@
-# Hawaii Guide · Leon & Tyson
+# Hawaii Guide · Leo & Tyson
 
-只包含歐胡島的公開旅行指南：Day 1–8、景點 Google Maps 按鈕、行前分工及官方參考連結。Leon 維護，Tyson 查看。頁面沿用原旅行規劃的白底橘色視覺與已核對來源的景點照片，公開資料獨立整理。
+只包含歐胡島的公開旅行指南：Day 1–8、景點 Google Maps 按鈕、行前分工及官方參考連結。Leo 維護，Tyson 查看。頁面沿用原旅行規劃的白底橘色視覺與已核對來源的景點照片，公開資料獨立整理。
 
 ## 修改行程：只改一個檔案
 
@@ -16,7 +16,7 @@
 | 景點、美食、飯店與地址 | `places`；`mapUrl` 使用核對過的 Google Maps 地點頁 |
 | 官方資源 | `resources` |
 
-`owners` 只能使用 `Leon`、`Tyson`。`status` 可使用：
+`owners` 只能使用 `Leo`、`Tyson`。`status` 可使用：
 
 - `planned`：行程安排。
 - `pending`：待確認。
@@ -50,7 +50,7 @@
 ## 公開資料界線
 
 - 用 Day 1–8，不放實際出遊日期、航班或私人接送位置。經授權公開 Stay Hotel Waikiki 與 Hilton Garden Inn Waikiki Beach 的名稱、公共地址及相對住宿日。
-- 僅用 Leon／Tyson 代稱；不放 Email、電話、證件、個人入境／投保結果。
+- 僅用 Leo／Tyson 代稱；不放 Email、電話、證件、個人入境／投保結果。
 - 不放訂單編號、付款資訊、QR code、私人憑證或附件。
 - Google 地圖連結指向核對過的公開地點頁，不使用個人收藏清單、Google 日曆、雲端文件或帶有帳號／訂單參數的連結。
 - 官方資源網址只允許檢查器列出的公開網站；要增加新官方網站，可審查後更新 `scripts/validate.py` 的 `ALLOWED_HOSTS`。

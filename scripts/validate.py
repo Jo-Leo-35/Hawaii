@@ -6,7 +6,7 @@ from urllib.parse import urlparse
 
 ROOT = Path(__file__).resolve().parents[1]
 STATUSES = {"planned", "pending", "confirmed", "optional"}
-OWNERS = {"Leon", "Tyson"}
+OWNERS = {"Leo", "Tyson"}
 ALLOWED_HOSTS = {
     "gojump-hawaii.com", "www.honolulu.gov", "www.kualoa.com",
     "funergygroup.com", "dolphinsandyou.com", "www.avis.com",
@@ -45,7 +45,7 @@ def map_url(value):
 def validate(data):
     fields(data, {"title", "travelers", "days", "checklist", "places", "resources"})
     text(data["title"])
-    require(data["travelers"] == ["Leon", "Tyson"], "Only the public aliases Leon and Tyson are allowed")
+    require(data["travelers"] == ["Leo", "Tyson"], "Only the public aliases Leo and Tyson are allowed")
     require(isinstance(data["places"], list), "Places must be an array")
     place_ids = set()
     lodging_ids = set()

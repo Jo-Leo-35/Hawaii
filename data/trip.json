@@ -1,7 +1,7 @@
 {
   "title": "Hawaii Guide",
   "travelers": [
-    "Leon",
+    "Leo",
     "Tyson"
   ],
   "days": [
@@ -215,22 +215,22 @@
       "shortTitle": "海豚・出海",
       "title": "海豚與你，西岸出海半日",
       "area": "Waianae Coast",
-      "summary": "Leon 負責海豚活動，先確認班次與接送，另外保留往返交通時間。",
-      "transport": "優先選含 Waikiki 接送方案",
+      "summary": "Leo 與 Tyson 兩組均已各自完成海豚與你預訂，接送與報到依各自確認單。",
+      "transport": "依各組預約確認單安排接送",
       "image": "./assets/waikiki.jpg",
       "imageAlt": "Waikiki 海岸與鑽石頭山",
       "stops": [
         {
           "period": "出發前",
           "name": "Waikiki 指定接送",
-          "note": "確切集合點及時間依實際預約確認，網站不列私人接送位置。",
+          "note": "兩組各自核對確認單的接送與報到安排；是否同班、同集合點以實際確認單為準。",
           "status": "planned"
         },
         {
           "period": "主要活動",
           "name": "Dolphins and You／Waiʻanae 出海港口",
-          "note": "船上觀察野生海豚，另處浮潛；水上活動依當日海況安排。",
-          "status": "pending",
+          "note": "Leo 與 Tyson 兩組均已各自完成預訂；船上觀海豚、另處浮潛，實際班次與接送依各自確認單。",
+          "status": "confirmed",
           "url": "https://dolphinsandyou.com/oahu-dolphin-tour/",
           "placeId": "dolphins"
         },
@@ -242,7 +242,7 @@
           "placeId": "hilton"
         }
       ],
-      "note": "先確認是否保留這一天作為其他戶外活動的改期備案，再完成預約。",
+      "note": "兩組預訂均已完成；各自保存確認單，活動與集合時間以各組實際預約為準。",
       "lodging": [
         "hilton"
       ]
@@ -331,12 +331,13 @@
   ],
   "checklist": [
     {
-      "title": "海豚活動：選班與確認接送",
+      "title": "海豚與你：兩組預訂均已完成",
       "owners": [
-        "Leon"
+        "Leo",
+        "Tyson"
       ],
-      "status": "pending",
-      "note": "確認實際人數、活動班次、指定接送、午餐與取消條款；取得確認單後更新進度。",
+      "status": "confirmed",
+      "note": "Leo 與 Tyson 兩組均已各自完成預訂；各組依確認單核對班次、接送與報到安排。",
       "url": "https://dolphinsandyou.com/oahu-dolphin-tour/"
     },
     {
@@ -360,7 +361,7 @@
     {
       "title": "租車：依交通需求定案",
       "owners": [
-        "Leon"
+        "Leo"
       ],
       "status": "pending",
       "note": "先確定用車日、取還車時間與駕駛，再比較含稅費和適用保障的總價。",
@@ -369,7 +370,7 @@
     {
       "title": "餐廳：保留想吃的幾家",
       "owners": [
-        "Leon",
+        "Leo",
         "Tyson"
       ],
       "status": "pending",
@@ -379,7 +380,7 @@
     {
       "title": "交通與行李：把移動安排串起來",
       "owners": [
-        "Leon"
+        "Leo"
       ],
       "status": "pending",
       "note": "核對機場來回、活動接送、住宿轉換與行李寄放；個別憑證不放在公開網站。"
@@ -427,7 +428,7 @@
       "name": "Dolphins and You",
       "area": "西岸",
       "category": "活動",
-      "note": "Waiʻanae 出海港口；實際碼頭與接送依確認單。",
+      "note": "Leo 與 Tyson 兩組均已各自預訂；此地圖是 Waiʻanae 出海港口，實際碼頭與接送依各自確認單。",
       "address": "85-491 Farrington Highway, Waianae, HI 96792",
       "mapUrl": "https://www.google.com/maps/place/Wai%CA%BBanae+Small+Boat+Harbor/@21.4501603,-158.1965899,17z/data=!3m1!4b1!4m6!3m5!1s0x7c008bb3e1af12cb:0xfdc1572c0c7054b7!8m2!3d21.4501603!4d-158.1965899!16s%2Fg%2F1tffj_c1"
     },
