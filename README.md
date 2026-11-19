@@ -1,0 +1,70 @@
+# Hawaii Guide · Leon & Tyson
+
+只包含歐胡島的公開旅行指南：Day 1–8、景點 Google Maps 按鈕、行前分工及官方參考連結。Leon 維護，Tyson 查看。頁面沿用原旅行規劃的白底橘色視覺與已核對來源的景點照片，公開資料獨立整理。
+
+## 修改行程：只改一個檔案
+
+開啟 [`data/trip.json`](data/trip.json)，點 GitHub 的鉛筆按鈕。修改後保留 JSON 的引號、逗號與括號，提交到 `main`。
+
+| 內容 | 欄位 |
+| --- | --- |
+| 每日標題、區域與交通 | `days` 內的 `title`、`area`、`transport` |
+| 每日時段、景點與備註 | `days` 內的 `stops` |
+| Google Maps 搜尋目的地 | `mapQuery`，填公開景點及城市名稱 |
+| 分工與進度 | `checklist` 內的 `owners`、`status`、`note` |
+| 景點與美食口袋名單 | `places` |
+| 官方資源 | `resources` |
+
+`owners` 只能使用 `Leon`、`Tyson`。`status` 可使用：
+
+- `planned`：行程安排。
+- `pending`：待確認。
+- `confirmed`：已安排，確實確認後才使用。
+- `optional`：候選備案。
+
+範例景點：
+
+```json
+{
+  "period": "下午",
+  "name": "Waikiki Beach",
+  "note": "散步與休息，依體力調整。",
+  "status": "planned",
+  "mapQuery": "Waikiki Beach Honolulu"
+}
+```
+
+網站不提供訪客編輯，也不把個人瀏覽器的勾選當成共用進度。每個人看到的是已發布的資料版本。
+
+## 自動檢查與發布
+
+提交後，GitHub 的 **Actions** 會檢查 JSON 格式、資料欄位及基本公開資料界線，成功後發布 GitHub Pages。若檢查失敗，原本已上線版本會保留；到 Actions 查看錯誤，修正後再提交。
+
+首次啟用：repository 的 **Settings → Pages → Source** 選 **GitHub Actions**。需要時可從 Actions 手動執行 **Validate and publish Hawaii Guide**。
+
+公開網址：<https://Jo-Leo-35.github.io/hawaii-guide/>。
+
+## 公開資料界線
+
+- 用 Day 1–8，不放實際出遊日期、航班、住宿名稱或私人接送位置。
+- 僅用 Leon／Tyson 代稱；不放 Email、電話、證件、個人入境／投保結果。
+- 不放訂單編號、付款資訊、QR code、私人憑證或附件。
+- Google 地圖連結由公開景點名稱產生，不使用個人收藏清單、Google 日曆、雲端文件或帶有帳號／訂單參數的連結。
+- 官方資源網址只允許檢查器列出的公開網站；要增加新官方網站，可審查後更新 `scripts/validate.py` 的 `ALLOWED_HOSTS`。
+- 不從私人日曆自動同步資料。發布前仍需人工確認文案沒有其他可識別的私人資訊。
+
+新 repository 以乾淨的提交歷史開始；沒有帶入原 repository 的原始行程資料、試算表、備份、部署設定或 Git 歷史。
+
+## 本機檢查與預覽
+
+只需要 Python 3，不需要 Node、API key、資料庫或付費地圖服務。
+
+```sh
+python3 scripts/test_validation.py
+python3 scripts/build.py
+python3 -m http.server 8080 --directory dist
+```
+
+部署內容由明確的檔案清單產生在 `dist/`，不會把整個工作目錄打包。
+
+程式碼：MIT License。照片來源與授權見 [`CREDITS.html`](CREDITS.html)。

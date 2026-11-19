@@ -1,0 +1,478 @@
+{
+  "title": "Hawaii Guide",
+  "travelers": [
+    "Leon",
+    "Tyson"
+  ],
+  "days": [
+    {
+      "id": "day-1",
+      "shortTitle": "抵達・海灘",
+      "title": "抵達 Waikiki，先把步調放慢",
+      "area": "Waikiki",
+      "summary": "抵達、安頓行李，在海邊走走。第一天留給時差和島上的風。",
+      "transport": "機場交通 / 步行",
+      "image": "./assets/waikiki.jpg",
+      "imageAlt": "Waikiki 海岸與鑽石頭山",
+      "stops": [
+        {
+          "period": "抵達後",
+          "name": "Waikiki 區域",
+          "note": "前往住宿區域、安頓行李；入住與寄放方式另依確認資訊。",
+          "status": "planned",
+          "mapQuery": "Waikiki Honolulu Hawaii"
+        },
+        {
+          "period": "下午",
+          "name": "Waikiki Beach",
+          "note": "海灘散步、熟悉周邊環境，依體力彈性安排。",
+          "status": "planned",
+          "mapQuery": "Waikiki Beach Honolulu"
+        },
+        {
+          "period": "傍晚",
+          "name": "Kalākaua Avenue",
+          "note": "逛逛街區，晚餐從附近的口袋名單挑選。",
+          "status": "planned",
+          "mapQuery": "Kalakaua Avenue Waikiki"
+        }
+      ],
+      "note": "第一天不排需要趕時間的活動，先休息好。"
+    },
+    {
+      "id": "day-2",
+      "shortTitle": "海灘・美食",
+      "title": "Kaimana 海灘與 Kapahulu 美食散步",
+      "area": "Waikiki / Kapahulu",
+      "summary": "海灘、咖啡與街區散步，餐廳按食慾和訂位情況選擇。",
+      "transport": "步行 / 公車 / 短程叫車",
+      "image": "./assets/waikiki.jpg",
+      "imageAlt": "Waikiki 海岸與鑽石頭山",
+      "stops": [
+        {
+          "period": "上午",
+          "name": "Kaimana Beach",
+          "note": "到 Waikiki 東側海灘走走，依當日海況決定是否下水。",
+          "status": "planned",
+          "mapQuery": "Kaimana Beach Honolulu"
+        },
+        {
+          "period": "下午",
+          "name": "Kapahulu 街區",
+          "note": "Leonard’s、Ono Seafood、Rainbow Drive-In 都是用餐候選。",
+          "status": "planned",
+          "mapQuery": "Kapahulu Avenue Honolulu"
+        },
+        {
+          "period": "晚餐候選",
+          "name": "Tonkatsu Tamafuji",
+          "note": "想吃豬排就先確認可預約時段，沒有合適場次再調整餐廳。",
+          "status": "pending",
+          "mapQuery": "Tonkatsu Tamafuji Kapahulu Honolulu",
+          "url": "https://www.tablecheck.com/en/shops/tamafuji-us-kapahulu/reserve"
+        }
+      ],
+      "note": "餐廳是候選清單，不需要每一家都吃到。"
+    },
+    {
+      "id": "day-3",
+      "shortTitle": "北岸・跳傘",
+      "title": "GoJump 北岸跳傘，傍晚回 Waikiki",
+      "area": "North Shore / Waikiki",
+      "summary": "今天以已安排的跳傘為主，報到與接駁依私人確認單核對。",
+      "transport": "活動接駁 / 交通待確認",
+      "image": "./assets/waikiki.jpg",
+      "imageAlt": "Waikiki 海岸與鑽石頭山",
+      "stops": [
+        {
+          "period": "主要活動",
+          "name": "GoJump Hawaii",
+          "note": "已安排；實際報到時間、攝影內容與接送另外核對。",
+          "status": "confirmed",
+          "mapQuery": "GoJump Hawaii Mokuleia",
+          "url": "https://www.gojumphawaii.com/"
+        },
+        {
+          "period": "回城後",
+          "name": "住宿與行李安排",
+          "note": "如需更換住宿，先確認行李寄放與取回方式，預留交通和休息時間。",
+          "status": "planned"
+        }
+      ],
+      "note": "跳傘依當日天候與業者安排調整，其他安排保留彈性。"
+    },
+    {
+      "id": "day-4",
+      "shortTitle": "恐龍灣",
+      "title": "恐龍灣浮潛，把半天留給海",
+      "area": "Hanauma Bay / Waikiki",
+      "summary": "Tyson 負責確認活動方案；入園、接送和裝備要一起核對。",
+      "transport": "接駁或自行前往，待方案確認",
+      "image": "./assets/hanauma-bay.jpg",
+      "imageAlt": "恐龍灣的海灣景觀",
+      "stops": [
+        {
+          "period": "入園時段",
+          "name": "Hanauma Bay 恐龍灣",
+          "note": "依已取得的入園時段前往，先完成現場保育教育流程。",
+          "status": "pending",
+          "mapQuery": "Hanauma Bay Nature Preserve Honolulu",
+          "url": "https://www.honolulu.gov/dpr/hanauma-bay-nature-preserve/"
+        },
+        {
+          "period": "海灘時間",
+          "name": "浮潛與沙灘休息",
+          "note": "依海況與體力交替下水、休息；裝備是否包含在方案內需確認。",
+          "status": "planned",
+          "mapQuery": "Hanauma Bay Nature Preserve Honolulu"
+        },
+        {
+          "period": "下午",
+          "name": "回 Waikiki 休息",
+          "note": "晚餐可從 Duke’s 或 Lulu’s 擇一。",
+          "status": "planned",
+          "mapQuery": "Waikiki Honolulu Hawaii"
+        }
+      ],
+      "note": "已買含入園套票時，不要重複訂市府票；私人憑證留在自己的裝置。"
+    },
+    {
+      "id": "day-5",
+      "shortTitle": "山谷・牧場",
+      "title": "古蘭尼牧場，走進電影裡的山谷",
+      "area": "Windward Coast",
+      "summary": "Tyson 負責牧場方案與場次；UTV、電影場景巴士或 Jurassic Tour 擇一。",
+      "transport": "接駁或租車，待朋友安排確認",
+      "image": "./assets/kualoa-ranch.jpg",
+      "imageAlt": "古蘭尼牧場的山谷景觀",
+      "stops": [
+        {
+          "period": "主要活動",
+          "name": "Kualoa Ranch 古蘭尼牧場",
+          "note": "先決定玩法，再核對場次、人數與往返交通。",
+          "status": "pending",
+          "mapQuery": "Kualoa Ranch Kaneohe",
+          "url": "https://www.kualoa.com/"
+        },
+        {
+          "period": "加碼候選",
+          "name": "Hoʻomaluhia Botanical Garden",
+          "note": "有租車、時間足夠時再加入；以牧場活動為優先。",
+          "status": "optional",
+          "mapQuery": "Hoomaluhia Botanical Garden Kaneohe"
+        },
+        {
+          "period": "晚餐候選",
+          "name": "Tori Ton",
+          "note": "回 Honolulu 後的晚餐候選，確定要吃再預約。",
+          "status": "optional",
+          "mapQuery": "Tori Ton Honolulu",
+          "url": "https://funergygroup.com/toriton"
+        }
+      ],
+      "note": "先拿到牧場場次與交通安排，再決定是否需要租車。"
+    },
+    {
+      "id": "day-6",
+      "shortTitle": "海豚・出海",
+      "title": "海豚與你，西岸出海半日",
+      "area": "Waianae Coast",
+      "summary": "Leon 負責海豚活動，先確認班次與接送，另外保留往返交通時間。",
+      "transport": "優先選含 Waikiki 接送方案",
+      "image": "./assets/waikiki.jpg",
+      "imageAlt": "Waikiki 海岸與鑽石頭山",
+      "stops": [
+        {
+          "period": "出發前",
+          "name": "Waikiki 指定接送",
+          "note": "確切集合點及時間依實際預約確認，網站不列私人接送位置。",
+          "status": "planned"
+        },
+        {
+          "period": "主要活動",
+          "name": "Dolphins and You",
+          "note": "船上觀察野生海豚，另處浮潛；水上活動依當日海況安排。",
+          "status": "pending",
+          "mapQuery": "Waianae Boat Harbor Oahu",
+          "url": "https://dolphinsandyou.com/oahu-dolphin-tour/"
+        },
+        {
+          "period": "回城後",
+          "name": "Waikiki 自由活動",
+          "note": "回城後留時間休息，晚餐彈性安排。",
+          "status": "planned",
+          "mapQuery": "Waikiki Honolulu Hawaii"
+        }
+      ],
+      "note": "先確認是否保留這一天作為其他戶外活動的改期備案，再完成預約。"
+    },
+    {
+      "id": "day-7",
+      "shortTitle": "購物・散步",
+      "title": "Ala Moana 購物，Kakaʻako 吃吃走走",
+      "area": "Ala Moana / Kakaʻako",
+      "summary": "以市區購物與美食散步為主，也留一點空檔補前幾天錯過的安排。",
+      "transport": "公車 / 步行 / 短程叫車",
+      "image": "./assets/waikiki.jpg",
+      "imageAlt": "Waikiki 海岸與鑽石頭山",
+      "stops": [
+        {
+          "period": "上午",
+          "name": "Ala Moana Center",
+          "note": "依需求逛街購物，不必排滿整天。",
+          "status": "planned",
+          "mapQuery": "Ala Moana Center Honolulu"
+        },
+        {
+          "period": "下午",
+          "name": "Kakaʻako",
+          "note": "街區散步、找壁畫或挑一間想吃的餐廳。",
+          "status": "planned",
+          "mapQuery": "Kakaako Honolulu"
+        },
+        {
+          "period": "用餐候選",
+          "name": "Giovanni’s Kakaʻako",
+          "note": "蒜蝦的市區用餐候選，注意與北岸分店區分。",
+          "status": "optional",
+          "mapQuery": "Giovannis Shrimp Kakaako Honolulu"
+        }
+      ],
+      "note": "可保留部分時間，作為天候造成活動改期的緩衝。"
+    },
+    {
+      "id": "day-8",
+      "shortTitle": "早餐・返程",
+      "title": "吃頓早餐，好好和歐胡島道別",
+      "area": "Waikiki / HNL",
+      "summary": "早餐、收行李、退房與機場交通，依私人航班資訊預留足夠時間。",
+      "transport": "機場交通",
+      "image": "./assets/waikiki.jpg",
+      "imageAlt": "Waikiki 海岸與鑽石頭山",
+      "stops": [
+        {
+          "period": "早餐",
+          "name": "Waikiki 早餐與最後散步",
+          "note": "選附近方便的早餐店，確認所有行李與隨身物品。",
+          "status": "planned",
+          "mapQuery": "Waikiki Honolulu Hawaii"
+        },
+        {
+          "period": "出發前",
+          "name": "退房與行李",
+          "note": "依住宿規定完成退房，核對證件、行李與交通安排。",
+          "status": "planned"
+        },
+        {
+          "period": "返程",
+          "name": "Daniel K. Inouye International Airport",
+          "note": "依實際航班與航空公司要求安排出發及報到時間。",
+          "status": "planned",
+          "mapQuery": "Daniel K Inouye International Airport HNL"
+        }
+      ],
+      "note": "航班、訂位代碼、住宿與證件資訊另外保存。"
+    }
+  ],
+  "checklist": [
+    {
+      "title": "海豚活動：選班與確認接送",
+      "owners": [
+        "Leon"
+      ],
+      "status": "pending",
+      "note": "確認實際人數、活動班次、指定接送、午餐與取消條款；取得確認單後更新進度。",
+      "url": "https://dolphinsandyou.com/oahu-dolphin-tour/"
+    },
+    {
+      "title": "古蘭尼牧場：方案與往返交通",
+      "owners": [
+        "Tyson"
+      ],
+      "status": "pending",
+      "note": "決定 UTV、電影場景巴士或 Jurassic Tour；回報場次，以及是否需要安排租車。",
+      "url": "https://www.kualoa.com/"
+    },
+    {
+      "title": "恐龍灣：入園、接駁與裝備",
+      "owners": [
+        "Tyson"
+      ],
+      "status": "pending",
+      "note": "確認方案是否含入園票、往返接送與浮潛裝備，再回報活動安排。",
+      "url": "https://www.honolulu.gov/dpr/hanauma-bay-nature-preserve/"
+    },
+    {
+      "title": "租車：依交通需求定案",
+      "owners": [
+        "Leon"
+      ],
+      "status": "pending",
+      "note": "先確定用車日、取還車時間與駕駛，再比較含稅費和適用保障的總價。",
+      "url": "https://www.avis.com/en/locations/nam/us/hi/honolulu-oahu/hi6"
+    },
+    {
+      "title": "餐廳：保留想吃的幾家",
+      "owners": [
+        "Leon",
+        "Tyson"
+      ],
+      "status": "pending",
+      "note": "確認 Tamafuji 是否有合適時段；其他餐廳決定要吃再訂，保留自由用餐空間。",
+      "url": "https://www.tablecheck.com/en/shops/tamafuji-us-kapahulu/reserve"
+    },
+    {
+      "title": "交通與行李：把移動安排串起來",
+      "owners": [
+        "Leon"
+      ],
+      "status": "pending",
+      "note": "核對機場來回、活動接送、住宿轉換與行李寄放；個別憑證不放在公開網站。"
+    }
+  ],
+  "places": [
+    {
+      "name": "Waikiki Beach",
+      "area": "Waikiki",
+      "category": "海灘",
+      "note": "適合抵達後或回城後的散步。",
+      "mapQuery": "Waikiki Beach Honolulu"
+    },
+    {
+      "name": "Kaimana Beach",
+      "area": "Waikiki",
+      "category": "海灘",
+      "note": "Waikiki 東側的海灘安排。",
+      "mapQuery": "Kaimana Beach Honolulu"
+    },
+    {
+      "name": "Hanauma Bay 恐龍灣",
+      "area": "東南岸",
+      "category": "活動",
+      "note": "先確認入園與交通，再安排浮潛。",
+      "mapQuery": "Hanauma Bay Nature Preserve Honolulu"
+    },
+    {
+      "name": "Kualoa Ranch 古蘭尼牧場",
+      "area": "迎風岸",
+      "category": "活動",
+      "note": "山谷與電影場景，活動方案擇一。",
+      "mapQuery": "Kualoa Ranch Kaneohe"
+    },
+    {
+      "name": "Hoʻomaluhia Botanical Garden",
+      "area": "迎風岸",
+      "category": "自然",
+      "note": "有租車且時間足夠時的加碼候選。",
+      "mapQuery": "Hoomaluhia Botanical Garden Kaneohe"
+    },
+    {
+      "name": "Ala Moana Center",
+      "area": "Ala Moana",
+      "category": "購物",
+      "note": "市區購物日的主要安排。",
+      "mapQuery": "Ala Moana Center Honolulu"
+    },
+    {
+      "name": "Maguro Spot",
+      "area": "Waikiki",
+      "category": "餐飲",
+      "note": "Waikiki 區域的用餐候選。",
+      "mapQuery": "Maguro Spot Honolulu"
+    },
+    {
+      "name": "Musubi Cafe IYASUME",
+      "area": "Waikiki",
+      "category": "餐飲",
+      "note": "輕食與早餐候選，導航時確認分店。",
+      "mapQuery": "Musubi Cafe Iyasume Waikiki"
+    },
+    {
+      "name": "Island Vintage Coffee",
+      "area": "Waikiki",
+      "category": "餐飲",
+      "note": "咖啡與早餐候選。",
+      "mapQuery": "Island Vintage Coffee Royal Hawaiian Center"
+    },
+    {
+      "name": "Duke’s Waikiki",
+      "area": "Waikiki",
+      "category": "餐飲",
+      "note": "晚餐候選，確定用餐再確認訂位。",
+      "mapQuery": "Dukes Waikiki"
+    },
+    {
+      "name": "Lulu’s Waikiki",
+      "area": "Waikiki",
+      "category": "餐飲",
+      "note": "海灘周邊的用餐候選。",
+      "mapQuery": "Lulus Waikiki"
+    },
+    {
+      "name": "Leonard’s Bakery",
+      "area": "Kapahulu",
+      "category": "餐飲",
+      "note": "街區美食散步的點心候選。",
+      "mapQuery": "Leonards Bakery Kapahulu Honolulu"
+    },
+    {
+      "name": "Ono Seafood",
+      "area": "Kapahulu",
+      "category": "餐飲",
+      "note": "Kapahulu 街區的 poke 候選。",
+      "mapQuery": "Ono Seafood Kapahulu Honolulu"
+    },
+    {
+      "name": "Rainbow Drive-In",
+      "area": "Kapahulu",
+      "category": "餐飲",
+      "note": "Kapahulu 街區的餐盤候選。",
+      "mapQuery": "Rainbow Drive In Kapahulu Honolulu"
+    },
+    {
+      "name": "Tonkatsu Tamafuji",
+      "area": "Kapahulu",
+      "category": "餐飲",
+      "note": "豬排餐廳，先確認訂位場次。",
+      "mapQuery": "Tonkatsu Tamafuji Kapahulu Honolulu"
+    },
+    {
+      "name": "Tori Ton",
+      "area": "Honolulu",
+      "category": "餐飲",
+      "note": "牧場回城後的晚餐候選。",
+      "mapQuery": "Tori Ton Honolulu"
+    },
+    {
+      "name": "Giovanni’s Shrimp — Kakaʻako",
+      "area": "Kakaʻako",
+      "category": "餐飲",
+      "note": "市區分店，與北岸行程分開考慮。",
+      "mapQuery": "Giovannis Shrimp Kakaako Honolulu"
+    },
+    {
+      "name": "Giovanni’s Shrimp Truck — Haleʻiwa",
+      "area": "北岸",
+      "category": "餐飲",
+      "note": "有安排北岸散步時的蒜蝦候選。",
+      "mapQuery": "Giovannis Shrimp Truck Haleiwa"
+    }
+  ],
+  "resources": [
+    {
+      "title": "入境文件與 ESTA",
+      "note": "出發前各自核對適用入境文件，從官方網站申請或查詢。",
+      "url": "https://esta.cbp.dhs.gov/"
+    },
+    {
+      "title": "恐龍灣官方資訊",
+      "note": "查看入園方式與保育區公告，已含門票的方案不重複買票。",
+      "url": "https://www.honolulu.gov/dpr/hanauma-bay-nature-preserve/"
+    },
+    {
+      "title": "租車保障參考",
+      "note": "按實際租車契約確認車損、第三人責任與其他條件；旅遊保險另外核對活動保障。",
+      "url": "https://www.enterprise.com/en/car-rental-faqs/us-insurance-and-protections/car-rental-insurance.html"
+    }
+  ]
+}
