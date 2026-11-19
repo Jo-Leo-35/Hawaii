@@ -17,27 +17,30 @@
       "stops": [
         {
           "period": "抵達後",
-          "name": "Waikiki 區域",
-          "note": "前往住宿區域、安頓行李；入住與寄放方式另依確認資訊。",
+          "name": "Stay Hotel Waikiki",
+          "note": "安頓行李；入住或提前寄放依飯店回覆。",
           "status": "planned",
-          "mapQuery": "Waikiki Honolulu Hawaii"
+          "placeId": "stay"
         },
         {
           "period": "下午",
-          "name": "Waikiki Beach",
-          "note": "海灘散步、熟悉周邊環境，依體力彈性安排。",
+          "name": "Kūhiō Beach（Waikiki 海灘段）",
+          "note": "海灘散步，依體力調整。",
           "status": "planned",
-          "mapQuery": "Waikiki Beach Honolulu"
+          "placeId": "waikiki"
         },
         {
           "period": "傍晚",
-          "name": "Kalākaua Avenue",
-          "note": "逛逛街區，晚餐從附近的口袋名單挑選。",
+          "name": "Kalākaua Avenue 散步",
+          "note": "地圖從 Royal Hawaiian Center 的 Island Vintage Coffee 附近開始；沿大道散步。",
           "status": "planned",
-          "mapQuery": "Kalakaua Avenue Waikiki"
+          "placeId": "coffee"
         }
       ],
-      "note": "第一天不排需要趕時間的活動，先休息好。"
+      "note": "第一天不排需要趕時間的活動，先休息好。",
+      "lodging": [
+        "stay"
+      ]
     },
     {
       "id": "day-2",
@@ -52,32 +55,49 @@
         {
           "period": "上午",
           "name": "Kaimana Beach",
-          "note": "到 Waikiki 東側海灘走走，依當日海況決定是否下水。",
+          "note": "Waikiki 東側的公共海灘，依海況安排。",
           "status": "planned",
-          "mapQuery": "Kaimana Beach Honolulu"
+          "placeId": "kaimana"
         },
         {
-          "period": "下午",
-          "name": "Kapahulu 街區",
-          "note": "Leonard’s、Ono Seafood、Rainbow Drive-In 都是用餐候選。",
-          "status": "planned",
-          "mapQuery": "Kapahulu Avenue Honolulu"
+          "period": "下午點心",
+          "name": "Leonard’s Bakery",
+          "note": "Kapahulu 街區的點心候選。",
+          "status": "optional",
+          "placeId": "leonards"
+        },
+        {
+          "period": "用餐候選",
+          "name": "Ono Seafood",
+          "note": "Kapahulu 的 poke 候選，與 Rainbow 擇一即可。",
+          "status": "optional",
+          "placeId": "ono"
+        },
+        {
+          "period": "用餐候選",
+          "name": "Rainbow Drive-In",
+          "note": "Kapahulu 用餐候選，不必每一家都吃到。",
+          "status": "optional",
+          "placeId": "rainbow"
         },
         {
           "period": "晚餐候選",
           "name": "Tonkatsu Tamafuji",
-          "note": "想吃豬排就先確認可預約時段，沒有合適場次再調整餐廳。",
+          "note": "確定有合適訂位再安排，無場次則彈性調整。",
           "status": "pending",
-          "mapQuery": "Tonkatsu Tamafuji Kapahulu Honolulu",
+          "placeId": "tamafuji",
           "url": "https://www.tablecheck.com/en/shops/tamafuji-us-kapahulu/reserve"
         }
       ],
-      "note": "餐廳是候選清單，不需要每一家都吃到。"
+      "note": "餐廳是候選清單，不需要每一家都吃到。",
+      "lodging": [
+        "stay"
+      ]
     },
     {
       "id": "day-3",
-      "shortTitle": "北岸・跳傘",
-      "title": "GoJump 北岸跳傘，傍晚回 Waikiki",
+      "shortTitle": "跳傘・換飯店",
+      "title": "GoJump 跳傘，回城換飯店",
       "area": "North Shore / Waikiki",
       "summary": "今天以已安排的跳傘為主，報到與接駁依私人確認單核對。",
       "transport": "活動接駁 / 交通待確認",
@@ -85,21 +105,33 @@
       "imageAlt": "Waikiki 海岸與鑽石頭山",
       "stops": [
         {
+          "period": "出發前",
+          "name": "Stay Hotel Waikiki 退房與寄放",
+          "note": "先確認退房、寄存與回城取行李方式。",
+          "status": "planned",
+          "placeId": "stay"
+        },
+        {
           "period": "主要活動",
           "name": "GoJump Hawaii",
-          "note": "已安排；實際報到時間、攝影內容與接送另外核對。",
+          "note": "已安排；實際報到、攝影與接送另外核對。",
           "status": "confirmed",
-          "mapQuery": "GoJump Hawaii Mokuleia",
-          "url": "https://www.gojumphawaii.com/"
+          "placeId": "gojump",
+          "url": "https://gojump-hawaii.com/"
         },
         {
           "period": "回城後",
-          "name": "住宿與行李安排",
-          "note": "如需更換住宿，先確認行李寄放與取回方式，預留交通和休息時間。",
-          "status": "planned"
+          "name": "Hilton Garden Inn Waikiki Beach",
+          "note": "回 Stay 取行李後前往 Hilton Garden Inn 辦理入住。",
+          "status": "planned",
+          "placeId": "hilton"
         }
       ],
-      "note": "跳傘依當日天候與業者安排調整，其他安排保留彈性。"
+      "note": "跳傘依當日天候與業者安排調整，其他安排保留彈性。",
+      "lodging": [
+        "stay",
+        "hilton"
+      ]
     },
     {
       "id": "day-4",
@@ -116,25 +148,28 @@
           "name": "Hanauma Bay 恐龍灣",
           "note": "依已取得的入園時段前往，先完成現場保育教育流程。",
           "status": "pending",
-          "mapQuery": "Hanauma Bay Nature Preserve Honolulu",
-          "url": "https://www.honolulu.gov/dpr/hanauma-bay-nature-preserve/"
+          "url": "https://www.honolulu.gov/dpr/hanauma-bay-nature-preserve/",
+          "placeId": "hanauma"
         },
         {
           "period": "海灘時間",
           "name": "浮潛與沙灘休息",
           "note": "依海況與體力交替下水、休息；裝備是否包含在方案內需確認。",
           "status": "planned",
-          "mapQuery": "Hanauma Bay Nature Preserve Honolulu"
+          "placeId": "hanauma"
         },
         {
           "period": "下午",
           "name": "回 Waikiki 休息",
           "note": "晚餐可從 Duke’s 或 Lulu’s 擇一。",
           "status": "planned",
-          "mapQuery": "Waikiki Honolulu Hawaii"
+          "placeId": "hilton"
         }
       ],
-      "note": "已買含入園套票時，不要重複訂市府票；私人憑證留在自己的裝置。"
+      "note": "已買含入園套票時，不要重複訂市府票；私人憑證留在自己的裝置。",
+      "lodging": [
+        "hilton"
+      ]
     },
     {
       "id": "day-5",
@@ -151,26 +186,29 @@
           "name": "Kualoa Ranch 古蘭尼牧場",
           "note": "先決定玩法，再核對場次、人數與往返交通。",
           "status": "pending",
-          "mapQuery": "Kualoa Ranch Kaneohe",
-          "url": "https://www.kualoa.com/"
+          "url": "https://www.kualoa.com/",
+          "placeId": "kualoa"
         },
         {
           "period": "加碼候選",
           "name": "Hoʻomaluhia Botanical Garden",
           "note": "有租車、時間足夠時再加入；以牧場活動為優先。",
           "status": "optional",
-          "mapQuery": "Hoomaluhia Botanical Garden Kaneohe"
+          "placeId": "garden"
         },
         {
           "period": "晚餐候選",
           "name": "Tori Ton",
           "note": "回 Honolulu 後的晚餐候選，確定要吃再預約。",
           "status": "optional",
-          "mapQuery": "Tori Ton Honolulu",
-          "url": "https://funergygroup.com/toriton"
+          "url": "https://funergygroup.com/toriton",
+          "placeId": "toriton"
         }
       ],
-      "note": "先拿到牧場場次與交通安排，再決定是否需要租車。"
+      "note": "先拿到牧場場次與交通安排，再決定是否需要租車。",
+      "lodging": [
+        "hilton"
+      ]
     },
     {
       "id": "day-6",
@@ -190,21 +228,24 @@
         },
         {
           "period": "主要活動",
-          "name": "Dolphins and You",
+          "name": "Dolphins and You／Waiʻanae 出海港口",
           "note": "船上觀察野生海豚，另處浮潛；水上活動依當日海況安排。",
           "status": "pending",
-          "mapQuery": "Waianae Boat Harbor Oahu",
-          "url": "https://dolphinsandyou.com/oahu-dolphin-tour/"
+          "url": "https://dolphinsandyou.com/oahu-dolphin-tour/",
+          "placeId": "dolphins"
         },
         {
           "period": "回城後",
           "name": "Waikiki 自由活動",
           "note": "回城後留時間休息，晚餐彈性安排。",
           "status": "planned",
-          "mapQuery": "Waikiki Honolulu Hawaii"
+          "placeId": "hilton"
         }
       ],
-      "note": "先確認是否保留這一天作為其他戶外活動的改期備案，再完成預約。"
+      "note": "先確認是否保留這一天作為其他戶外活動的改期備案，再完成預約。",
+      "lodging": [
+        "hilton"
+      ]
     },
     {
       "id": "day-7",
@@ -219,26 +260,36 @@
         {
           "period": "上午",
           "name": "Ala Moana Center",
-          "note": "依需求逛街購物，不必排滿整天。",
+          "note": "依需求逛街購物。",
           "status": "planned",
-          "mapQuery": "Ala Moana Center Honolulu"
+          "placeId": "ala"
         },
         {
           "period": "下午",
-          "name": "Kakaʻako",
-          "note": "街區散步、找壁畫或挑一間想吃的餐廳。",
+          "name": "Patagonia Honolulu／Kakaʻako 散步",
+          "note": "原收藏的 Ward Avenue 市區店，周邊安排街區散步。",
           "status": "planned",
-          "mapQuery": "Kakaako Honolulu"
+          "placeId": "patagonia"
         },
         {
           "period": "用餐候選",
-          "name": "Giovanni’s Kakaʻako",
-          "note": "蒜蝦的市區用餐候選，注意與北岸分店區分。",
+          "name": "Giovanni’s Shrimp — Kakaʻako",
+          "note": "H Mart 二樓的市區分店。",
           "status": "optional",
-          "mapQuery": "Giovannis Shrimp Kakaako Honolulu"
+          "placeId": "gio-city"
+        },
+        {
+          "period": "用餐候選",
+          "name": "Asahi Grill",
+          "note": "Ward Avenue 的用餐候選，與蒜蝦擇一即可。",
+          "status": "optional",
+          "placeId": "asahi"
         }
       ],
-      "note": "可保留部分時間，作為天候造成活動改期的緩衝。"
+      "note": "可保留部分時間，作為天候造成活動改期的緩衝。",
+      "lodging": [
+        "hilton"
+      ]
     },
     {
       "id": "day-8",
@@ -251,27 +302,31 @@
       "imageAlt": "Waikiki 海岸與鑽石頭山",
       "stops": [
         {
-          "period": "早餐",
-          "name": "Waikiki 早餐與最後散步",
-          "note": "選附近方便的早餐店，確認所有行李與隨身物品。",
+          "period": "早餐候選",
+          "name": "Musubi Cafe IYASUME",
+          "note": "2427 Kūhiō Avenue 分店；以方便取餐為主。",
           "status": "planned",
-          "mapQuery": "Waikiki Honolulu Hawaii"
+          "placeId": "musubi"
         },
         {
           "period": "出發前",
-          "name": "退房與行李",
-          "note": "依住宿規定完成退房，核對證件、行李與交通安排。",
-          "status": "planned"
+          "name": "Hilton Garden Inn 退房與行李",
+          "note": "完成退房，核對行李與機場交通。",
+          "status": "planned",
+          "placeId": "hilton"
         },
         {
           "period": "返程",
-          "name": "Daniel K. Inouye International Airport",
-          "note": "依實際航班與航空公司要求安排出發及報到時間。",
+          "name": "Daniel K. Inouye International Airport (HNL)",
+          "note": "依實際航班安排出發與報到時間。",
           "status": "planned",
-          "mapQuery": "Daniel K Inouye International Airport HNL"
+          "placeId": "airport"
         }
       ],
-      "note": "航班、訂位代碼、住宿與證件資訊另外保存。"
+      "note": "航班、訂位代碼與證件資訊另外保存。",
+      "lodging": [
+        "hilton"
+      ]
     }
   ],
   "checklist": [
@@ -332,130 +387,283 @@
   ],
   "places": [
     {
-      "name": "Waikiki Beach",
-      "area": "Waikiki",
-      "category": "海灘",
-      "note": "適合抵達後或回城後的散步。",
-      "mapQuery": "Waikiki Beach Honolulu"
+      "id": "gojump",
+      "name": "GoJump Hawaii",
+      "area": "北岸",
+      "category": "活動",
+      "note": "北岸跳傘報到地點；實際接駁與報到依確認單。",
+      "address": "68-760 Farrington Highway, Waialua, HI 96791",
+      "mapUrl": "https://www.google.com/maps/place/GoJump+Hawaii+Skydiving/@21.5785622,-158.1837479,17z/data=!3m1!4b1!4m6!3m5!1s0x7c005f34acd8a3f7:0xd66d913cbb33259b!8m2!3d21.5785622!4d-158.1837479!16s%2Fg%2F1vnnjm2x"
     },
     {
-      "name": "Kaimana Beach",
-      "area": "Waikiki",
-      "category": "海灘",
-      "note": "Waikiki 東側的海灘安排。",
-      "mapQuery": "Kaimana Beach Honolulu"
-    },
-    {
+      "id": "hanauma",
       "name": "Hanauma Bay 恐龍灣",
       "area": "東南岸",
       "category": "活動",
       "note": "先確認入園與交通，再安排浮潛。",
-      "mapQuery": "Hanauma Bay Nature Preserve Honolulu"
+      "address": "7455 Kalanianaole Highway, Honolulu, HI 96825",
+      "mapUrl": "https://www.google.com/maps/place/Hanauma+Bay+Nature+Preserve/@21.2749165,-157.6935205,17z/data=!3m1!4b1!4m6!3m5!1s0x7c0012719bd109ef:0xab722a8effffc385!8m2!3d21.2749165!4d-157.6935205!16s%2Fg%2F1q5gqrpmt"
     },
     {
+      "id": "kualoa",
       "name": "Kualoa Ranch 古蘭尼牧場",
       "area": "迎風岸",
       "category": "活動",
-      "note": "山谷與電影場景，活動方案擇一。",
-      "mapQuery": "Kualoa Ranch Kaneohe"
+      "note": "牧場入口使用官網提供的 49-560 Kamehameha Highway 地圖。",
+      "address": "49-560 Kamehameha Highway, Kaneohe, HI 96744",
+      "mapUrl": "https://www.google.com/maps/place/49-560+Kamehameha+Hwy,+Kaneohe,+HI+96744/@21.5202992,-157.837286,18.25z/data=!4m6!3m5!1s0x7c00416daded47ff:0x7483148b69fb6a77!8m2!3d21.5204505!4d-157.8367657!16s%2Fg%2F11txjlmv37"
     },
     {
+      "id": "garden",
       "name": "Hoʻomaluhia Botanical Garden",
       "area": "迎風岸",
-      "category": "自然",
+      "category": "景點",
       "note": "有租車且時間足夠時的加碼候選。",
-      "mapQuery": "Hoomaluhia Botanical Garden Kaneohe"
+      "address": "45-680 Luluku Road, Kaneohe, HI 96744",
+      "mapUrl": "https://www.google.com/maps/place/Ho%CA%BBomaluhia+Botanical+Garden/@21.3871682,-157.8038244,17z/data=!3m1!4b1!4m6!3m5!1s0x7c006b0b31ee406d:0x7fc7a3bb510eef28!8m2!3d21.3871682!4d-157.8038244!16zL20vMGRfaG0y"
     },
     {
+      "id": "dolphins",
+      "name": "Dolphins and You",
+      "area": "西岸",
+      "category": "活動",
+      "note": "Waiʻanae 出海港口；實際碼頭與接送依確認單。",
+      "address": "85-491 Farrington Highway, Waianae, HI 96792",
+      "mapUrl": "https://www.google.com/maps/place/Wai%CA%BBanae+Small+Boat+Harbor/@21.4501603,-158.1965899,17z/data=!3m1!4b1!4m6!3m5!1s0x7c008bb3e1af12cb:0xfdc1572c0c7054b7!8m2!3d21.4501603!4d-158.1965899!16s%2Fg%2F1tffj_c1"
+    },
+    {
+      "id": "kaimana",
+      "name": "Kaimana Beach",
+      "area": "Waikiki",
+      "category": "景點",
+      "note": "Waikiki 東側的海灘安排。",
+      "address": "Kaimana Beach (Sans Souci Beach), Kalakaua Avenue, Honolulu, HI 96815",
+      "mapUrl": "https://www.google.com/maps/place/Kaimana+Beach/@21.2633956,-157.8217712,17z/data=!3m1!4b1!4m6!3m5!1s0x7c00726f5d7f0b13:0x6b7daefc35220608!8m2!3d21.2633748!4d-157.8216761!16s%2Fg%2F11btx6jn62"
+    },
+    {
+      "id": "ala",
       "name": "Ala Moana Center",
-      "area": "Ala Moana",
+      "area": "市區西側",
       "category": "購物",
       "note": "市區購物日的主要安排。",
-      "mapQuery": "Ala Moana Center Honolulu"
+      "address": "1450 Ala Moana Boulevard, Honolulu, HI 96814",
+      "mapUrl": "https://www.google.com/maps/place/%E9%98%BF%E6%8B%89%E8%8E%AB%E9%98%BF%E9%82%A3%E4%B8%AD%E5%BF%83/@21.2914018,-157.8441573,17z/data=!3m1!4b1!4m6!3m5!1s0x7c006df0ab626f53:0x227f311d471df768!8m2!3d21.2911038!4d-157.8434622!16zL20vMDJ6cndj"
     },
     {
+      "id": "patagonia",
+      "name": "Patagonia Honolulu",
+      "area": "市區西側",
+      "category": "購物",
+      "note": "Ward Avenue 市區分店。",
+      "address": "535 Ward Avenue, Honolulu, HI 96814",
+      "mapUrl": "https://www.google.com/maps/place/Patagonia/@21.2979696,-157.8531129,17z/data=!3m1!4b1!4m6!3m5!1s0x7c006de2afc083a5:0xc3567189cd93fb79!8m2!3d21.2979696!4d-157.8531129!16s%2Fg%2F1v26m9tp"
+    },
+    {
+      "id": "market",
+      "name": "Market City Shopping Center",
+      "area": "Kapahulu／Moiliili",
+      "category": "購物",
+      "note": "原行程的用餐或景點候選，依當天安排選擇。",
+      "address": "2919 Kapiolani Boulevard, Honolulu, HI 96826",
+      "mapUrl": "https://www.google.com/maps/place/Market+City+Shopping+Center/@21.2880461,-157.8148255,17z/data=!3m1!4b1!4m6!3m5!1s0x7c006d84a65b2a91:0x4cac7a57f19af039!8m2!3d21.2880461!4d-157.8148255!16s%2Fg%2F1tsjdw44"
+    },
+    {
+      "id": "maguro",
       "name": "Maguro Spot",
       "area": "Waikiki",
       "category": "餐飲",
       "note": "Waikiki 區域的用餐候選。",
-      "mapQuery": "Maguro Spot Honolulu"
+      "address": "2441 Kuhio Ave, Honolulu, HI 96815",
+      "mapUrl": "https://www.google.com/maps/place/Maguro+Spot/@21.2764392,-157.8234887,17z/data=!3m1!4b1!4m6!3m5!1s0x7c007277a8742d2d:0xc3ff78b0b7562720!8m2!3d21.2764392!4d-157.8234887!16s%2Fg%2F11f3n1wpzd"
     },
     {
+      "id": "musubi",
       "name": "Musubi Cafe IYASUME",
       "area": "Waikiki",
       "category": "餐飲",
-      "note": "輕食與早餐候選，導航時確認分店。",
-      "mapQuery": "Musubi Cafe Iyasume Waikiki"
+      "note": "2427 Kūhiō Avenue 分店，靠近 Stay Hotel。",
+      "address": "2427 Kuhio Ave, Honolulu, HI 96815",
+      "mapUrl": "https://www.google.com/maps/place/Musubi+Cafe+IYASUME/@21.2777596,-157.8273679,17z/data=!4m10!1m2!2m1!1sMusubi+Cafe+IYASUME+2427+Kuhio+Ave+Honolulu+HI+96815!3m6!1s0x7c00739cd3d9148f:0x4a9e1d75a53125db!8m2!3d21.2765071!4d-157.8237386!15sCjRNdXN1YmkgQ2FmZSBJWUFTVU1FIDI0MjcgS3VoaW8gQXZlIEhvbm9sdWx1IEhJIDk2ODE1WjYiNG11c3ViaSBjYWZlIGl5YXN1bWUgMjQyNyBrdWhpbyBhdmUgaG9ub2x1bHUgaGkgOTY4MTWSARNqYXBhbmVzZV9yZXN0YXVyYW504AEA!16s%2Fg%2F11r_mrh33q"
     },
     {
-      "name": "Island Vintage Coffee",
+      "id": "coffee",
+      "name": "Island Vintage Coffee Waikiki",
       "area": "Waikiki",
       "category": "餐飲",
-      "note": "咖啡與早餐候選。",
-      "mapQuery": "Island Vintage Coffee Royal Hawaiian Center"
+      "note": "Royal Hawaiian Center 的 Waikiki 分店。",
+      "address": "2301 Kalakaua Ave #C215, Honolulu, HI 96815",
+      "mapUrl": "https://www.google.com/maps/place/Island+Vintage+Coffee+Waikiki/@21.2783342,-157.8287496,17z/data=!3m1!4b1!4m6!3m5!1s0x7c007356d879a88f:0x5cd5188d61b8ce57!8m2!3d21.2783342!4d-157.8287496!16s%2Fg%2F11lgnzp0jn"
     },
     {
+      "id": "dukes",
       "name": "Duke’s Waikiki",
       "area": "Waikiki",
       "category": "餐飲",
       "note": "晚餐候選，確定用餐再確認訂位。",
-      "mapQuery": "Dukes Waikiki"
+      "address": "2335 Kalakaua Ave #116, Honolulu, HI 96815",
+      "mapUrl": "https://www.google.com/maps/place/Duke's+Waikiki/@21.2769032,-157.8278887,17z/data=!3m1!4b1!4m6!3m5!1s0x7c007275d5c243cb:0xfffee1e1a1e0c9f1!8m2!3d21.2769032!4d-157.8278887!16s%2Fg%2F1tdwf48w"
     },
     {
+      "id": "lulus",
       "name": "Lulu’s Waikiki",
       "area": "Waikiki",
       "category": "餐飲",
       "note": "海灘周邊的用餐候選。",
-      "mapQuery": "Lulus Waikiki"
+      "address": "2586 Kalakaua Ave, Honolulu, HI 96815",
+      "mapUrl": "https://www.google.com/maps/place/Lulu's+Waikiki/@21.2719238,-157.8226832,17z/data=!3m1!4b1!4m6!3m5!1s0x7c007270a32738d3:0x21cc5d65f465cb4d!8m2!3d21.2719238!4d-157.8226832!16s%2Fg%2F1tzlz59k"
     },
     {
+      "id": "ice",
+      "name": "Island Vintage Shave Ice",
+      "area": "Waikiki",
+      "category": "餐飲",
+      "note": "Royal Hawaiian Center Kiosk B-1。",
+      "address": "2201 Kalakaua Ave Kiosk B-1, Honolulu, HI 96815",
+      "mapUrl": "https://www.google.com/maps/place/Island+Vintage+Shave+Ice/data=!4m7!3m6!1s0x7c006df069b6bfe7:0x97b85431fa5178f5!8m2!3d21.2787637!4d-157.8287751!16s%2Fg%2F11b70jcmvg!19sChIJ57-2afBtAHwR9XhR-jFUuJc"
+    },
+    {
+      "id": "ihop",
+      "name": "IHOP Waikiki",
+      "area": "Waikiki",
+      "category": "餐飲",
+      "note": "Waikiki Malia 的 2211 Kūhiō Avenue 分店。",
+      "address": "2211 Kuhio Ave, Honolulu, HI 96815",
+      "mapUrl": "https://www.google.com/maps/place/IHOP/@21.2810859,-157.8309359,17z/data=!3m1!4b1!4m6!3m5!1s0x7c006d8a1418cad9:0xd1bd3b9cead4025a!8m2!3d21.2810859!4d-157.828361!16s%2Fg%2F11h09lp2m"
+    },
+    {
+      "id": "sweet",
+      "name": "Sweet E’s Café",
+      "area": "Kapahulu／Moiliili",
+      "category": "餐飲",
+      "note": "原行程的用餐或景點候選，依當天安排選擇。",
+      "address": "1006 Kapahulu Ave, Honolulu, HI 96816",
+      "mapUrl": "https://www.google.com/maps/place/Sweet+E's+Caf%C3%A9/@21.286155,-157.8135931,17z/data=!3m1!4b1!4m6!3m5!1s0x7c006d830b4df29b:0x1d359cc23f38007d!8m2!3d21.286155!4d-157.8135931!16s%2Fg%2F1tyyx9zp"
+    },
+    {
+      "id": "leonards",
       "name": "Leonard’s Bakery",
-      "area": "Kapahulu",
+      "area": "Kapahulu／Moiliili",
       "category": "餐飲",
       "note": "街區美食散步的點心候選。",
-      "mapQuery": "Leonards Bakery Kapahulu Honolulu"
+      "address": "933 Kapahulu Ave, Honolulu, HI 96816",
+      "mapUrl": "https://www.google.com/maps/place/Leonard's+Bakery/@21.2848746,-157.8133438,17z/data=!3m1!4b1!4m6!3m5!1s0x7c0066002134d265:0xb9cb06fbe7f5980e!8m2!3d21.2848746!4d-157.8133438!16s%2Fm%2F0130cv6x"
     },
     {
+      "id": "ono",
       "name": "Ono Seafood",
-      "area": "Kapahulu",
+      "area": "Kapahulu／Moiliili",
       "category": "餐飲",
       "note": "Kapahulu 街區的 poke 候選。",
-      "mapQuery": "Ono Seafood Kapahulu Honolulu"
+      "address": "747 Kapahulu Ave, Honolulu, HI 96816",
+      "mapUrl": "https://www.google.com/maps/place/Ono+Seafood/@21.2810622,-157.8138535,17z/data=!3m1!4b1!4m6!3m5!1s0x7c006d8121b30587:0xa86d2a842f98cfaf!8m2!3d21.2810622!4d-157.8138535!16s%2Fg%2F1w0sd28m"
     },
     {
+      "id": "rainbow",
       "name": "Rainbow Drive-In",
-      "area": "Kapahulu",
+      "area": "Kapahulu／Moiliili",
       "category": "餐飲",
       "note": "Kapahulu 街區的餐盤候選。",
-      "mapQuery": "Rainbow Drive In Kapahulu Honolulu"
+      "address": "3308 Kanaina Ave, Honolulu, HI 96815",
+      "mapUrl": "https://www.google.com/maps/place/Rainbow+Drive-In/@21.2759374,-157.8145604,17z/data=!3m1!4b1!4m6!3m5!1s0x7c00727f31c4a949:0xb56da5e39fe7be61!8m2!3d21.2759374!4d-157.8145604!16s%2Fg%2F1tm8f63p"
     },
     {
+      "id": "tamafuji",
       "name": "Tonkatsu Tamafuji",
-      "area": "Kapahulu",
+      "area": "Kapahulu／Moiliili",
       "category": "餐飲",
       "note": "豬排餐廳，先確認訂位場次。",
-      "mapQuery": "Tonkatsu Tamafuji Kapahulu Honolulu"
+      "address": "449 Kapahulu Ave #105, Honolulu, HI 96815",
+      "mapUrl": "https://www.google.com/maps/place/Tonkatsu+Tamafuji/@21.2750448,-157.8154871,17z/data=!3m1!4b1!4m6!3m5!1s0x7c0072792b7bbe6f:0x1236c7d123283ebc!8m2!3d21.2750448!4d-157.8154871!16s%2Fg%2F11g6lxd6qq"
     },
     {
+      "id": "toriton",
       "name": "Tori Ton",
-      "area": "Honolulu",
+      "area": "Kapahulu／Moiliili",
       "category": "餐飲",
       "note": "牧場回城後的晚餐候選。",
-      "mapQuery": "Tori Ton Honolulu"
+      "address": "2334 S King St STE B, Honolulu, HI 96826",
+      "mapUrl": "https://www.google.com/maps/place/Tori+Ton/@21.2935484,-157.8259338,17z/data=!3m1!4b1!4m6!3m5!1s0x7c006d912809d691:0x7f2232bd17bd1f07!8m2!3d21.2935484!4d-157.8259338!16s%2Fg%2F11c2plqbyv"
     },
     {
-      "name": "Giovanni’s Shrimp — Kakaʻako",
-      "area": "Kakaʻako",
+      "id": "asahi",
+      "name": "Asahi Grill",
+      "area": "市區西側",
       "category": "餐飲",
-      "note": "市區分店，與北岸行程分開考慮。",
-      "mapQuery": "Giovannis Shrimp Kakaako Honolulu"
+      "note": "原行程的用餐或景點候選，依當天安排選擇。",
+      "address": "515 Ward Ave, Honolulu, HI 96814",
+      "mapUrl": "https://www.google.com/maps/place/Asahi+Grill/@21.2976698,-157.8538843,17z/data=!3m1!4b1!4m6!3m5!1s0x7c006de3aa34f8bf:0x8532cf66984c2fda!8m2!3d21.2976698!4d-157.8538843!16s%2Fg%2F1thffnnb"
     },
     {
+      "id": "gio-city",
+      "name": "Giovanni’s Shrimp — Kakaʻako",
+      "area": "市區西側",
+      "category": "餐飲",
+      "note": "H Mart Kakaʻako 二樓的市區分店。",
+      "address": "458 Keawe St, 2nd Floor, Honolulu, HI 96813",
+      "mapUrl": "https://www.google.com/maps/place/Giovanni%E2%80%99s+Shrimp/@21.3000276,-157.8603784,17z/data=!3m1!4b1!4m6!3m5!1s0x7c006f6c2b311867:0xee9e66fb0fe5fc29!8m2!3d21.3000276!4d-157.8603784!16s%2Fg%2F11jcd08mw9"
+    },
+    {
+      "id": "gio-north",
       "name": "Giovanni’s Shrimp Truck — Haleʻiwa",
       "area": "北岸",
       "category": "餐飲",
-      "note": "有安排北岸散步時的蒜蝦候選。",
-      "mapQuery": "Giovannis Shrimp Truck Haleiwa"
+      "note": "Haleʻiwa 北岸餐車，與市區分店分開。",
+      "address": "66-472 Kamehameha Hwy, Haleiwa, HI 96712",
+      "mapUrl": "https://www.google.com/maps/place/Giovanni's+Shrimp+Truck/@21.5807754,-158.1047265,17z/data=!3m1!4b1!4m6!3m5!1s0x7c005f2e53dae835:0xf377caf821230877!8m2!3d21.5807754!4d-158.1047265!16s%2Fg%2F11h11f1zc"
+    },
+    {
+      "id": "jenny",
+      "name": "Jenny’s Shrimp Truck",
+      "area": "北岸",
+      "category": "餐飲",
+      "note": "北岸蒜蝦候選；門牌以目前 Google Maps 地點頁為準。",
+      "address": "66-252 Kamehameha Hwy, Haleiwa, HI 96712",
+      "mapUrl": "https://www.google.com/maps/place/Jenny%E2%80%99s+Shrimp+Truck/@21.5792038,-158.1051938,17z/data=!3m1!4b1!4m6!3m5!1s0x7c005f1966f9d531:0xd5fa72e06828ecb4!8m2!3d21.5792038!4d-158.1051938!16s%2Fg%2F11f5v3bdv6"
+    },
+    {
+      "id": "ray",
+      "name": "Ray’s Kiawe Broiled Chicken",
+      "area": "北岸",
+      "category": "餐飲",
+      "note": "北岸烤雞候選；營業日出發前確認。",
+      "address": "66-190 Kamehameha Hwy, Haleiwa, HI 96712",
+      "mapUrl": "https://www.google.com/maps/place/Ray's+Kiawe+Broiled+Chicken/@21.5885986,-158.1028029,17z/data=!3m1!4b1!4m6!3m5!1s0x7c0058d34ae3fca7:0xa40ddb46f6a03e90!8m2!3d21.5885986!4d-158.1028029!16s%2Fg%2F1tf2491r"
+    },
+    {
+      "id": "stay",
+      "name": "Stay Hotel Waikiki",
+      "area": "Waikiki",
+      "category": "住宿",
+      "note": "Day 1–2 住宿；Day 3 退房，先安排寄放行李。",
+      "address": "2424 Koa Avenue, Honolulu, HI 96815",
+      "mapUrl": "https://www.google.com/maps/place/Stay+Hotel+Waikiki/@21.276203,-157.8245508,17z/data=!4m9!3m8!1s0x7c007276f76ec4ff:0xbddf81d312d6e735!5m2!4m1!1i2!8m2!3d21.276203!4d-157.8245508!16s%2Fg%2F1tfd75nw"
+    },
+    {
+      "id": "hilton",
+      "name": "Hilton Garden Inn Waikiki Beach",
+      "area": "Waikiki",
+      "category": "住宿",
+      "note": "Day 3–7 住宿；Day 8 退房。",
+      "address": "2330 Kuhio Avenue, Honolulu, HI 96815",
+      "mapUrl": "https://www.google.com/maps/place/%E5%B8%8C%E7%88%BE%E9%A0%93%E8%8A%B1%E5%9C%92%E6%97%85%E5%BA%97+%E5%A8%81%E5%9F%BA%E5%9F%BA%E6%B5%B7%E7%81%98/@21.2789,-157.8251052,17z/data=!4m9!3m8!1s0x7c00727625981981:0x7de8dcc14766c6e9!5m2!4m1!1i2!8m2!3d21.2789!4d-157.8251052!16s%2Fg%2F11bw1y178d"
+    },
+    {
+      "id": "waikiki",
+      "name": "Kūhiō Beach（Waikiki 海灘段）",
+      "area": "Waikiki",
+      "category": "海灘",
+      "note": "Waikiki 海灘散步，地圖指向 Kūhiō Beach 段。",
+      "address": "Kuhio Beach, Kalakaua Avenue, Honolulu, HI 96815",
+      "mapUrl": "https://www.google.com/maps/place/K%C5%ABhi%C5%8D+Beach,+Honolulu,+HI+96815/@21.2731822,-157.8266685,17z/data=!3m1!4b1!4m6!3m5!1s0x7c007270d6ee07f7:0x800c403b7aab11c0!8m2!3d21.2731822!4d-157.8240936!16s%2Fg%2F11btx5lmtw"
+    },
+    {
+      "id": "airport",
+      "name": "Daniel K. Inouye International Airport (HNL)",
+      "area": "Honolulu",
+      "category": "交通",
+      "note": "依實際航空公司確認航廈與報到位置。",
+      "address": "300 Rodgers Boulevard, Honolulu, HI 96819",
+      "mapUrl": "https://www.google.com/maps/place/%E6%AA%80%E9%A6%99%E5%B1%B1%E5%9C%8B%E9%9A%9B%E6%A9%9F%E5%A0%B4/@21.3323279,-157.9261084,16z/data=!3m1!4b1!4m6!3m5!1s0x7c006f943168f55f:0x7ed111b1cbf331df!8m2!3d21.3186623!4d-157.9254018!16zL20vMDFuNWZ3"
     }
   ],
   "resources": [

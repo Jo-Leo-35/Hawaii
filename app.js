@@ -21,12 +21,14 @@ function publicLink(label, href, className='official-link') {
   a.setAttribute('aria-label', `${label}（另開分頁）`);
   return a;
 }
-function mapLink(query) {
-  const url = new URL('https://www.google.com/maps/search/');
-  url.searchParams.set('api', '1');
-  url.searchParams.set('query', query);
+function placeById(id) { return trip.places.find(place => place.id === id); }
+function mapLink(place) {
+  const url = new URL(place.mapUrl);
+  if (url.hostname !== 'www.google.com' || !url.pathname.startsWith('/maps/place/')) {
+    throw new Error('Use a verified Google Maps place listing');
+  }
   const link = publicLink('Google Maps', url.href, 'map-link');
-  link.setAttribute('aria-label', `${query}：Google Maps（另開分頁）`);
+  link.setAttribute('aria-label', `${place.name}：Google Maps（另開分頁）`);
   return link;
 }
 function renderDay(index, focus=false) {
@@ -43,7 +45,13 @@ function renderDay(index, focus=false) {
   const intro = element('div', 'day-intro');
   intro.append(element('p','eyebrow',`DAY ${index+1} / ${day.area}`),element('h3','',day.title),element('p','',day.summary));
   const meta = element('div','day-meta');
-  meta.append(element('span','chip',day.transport),element('span','chip','住宿區域：Waikiki'));
+  meta.append(element('span','chip',day.transport));
+  for (const id of day.lodging) {
+    const place = placeById(id);
+    const link = publicLink(place.name,place.mapUrl,'chip lodging-link');
+    link.setAttribute('aria-label',`住宿：${place.name}，Google Maps（另開分頁）`);
+    meta.append(link);
+  }
   intro.append(meta);
   const photo = element('img','day-photo');
   photo.src = day.image;
@@ -57,10 +65,12 @@ function renderDay(index, focus=false) {
     row.append(element('div','stop-time',stop.period));
     const copy = element('div');
     copy.append(element('h4','',stop.name),element('p','',stop.note));
+    const place = stop.placeId ? placeById(stop.placeId) : null;
+    if (place) copy.append(element('p','place-address',place.address));
     if (stop.status !== 'planned') copy.append(badge(stop.status));
     row.append(copy);
     const actions = element('div','stop-actions');
-    if (stop.mapQuery) actions.append(mapLink(stop.mapQuery));
+    if (place) actions.append(mapLink(place));
     if (stop.url) actions.append(publicLink('官方資訊',stop.url));
     row.append(actions); stops.append(row);
   }
@@ -110,11 +120,11 @@ function renderFilters(){
 function renderPlaces(){
   const query=$('#place-search').value.trim().toLocaleLowerCase();
   const list=$('#place-list');list.replaceChildren();
-  const places=trip.places.filter(place=>`${place.name} ${place.area} ${place.note}`.toLocaleLowerCase().includes(query));
+  const places=trip.places.filter(place=>`${place.name} ${place.area} ${place.note} ${place.address}`.toLocaleLowerCase().includes(query));
   $('#place-empty').hidden=places.length>0;
   for(const place of places){
     const card=element('article','place-card');
-    card.append(element('span','',`${place.area} / ${place.category}`),element('h3','',place.name),element('p','',place.note),mapLink(place.mapQuery));
+    card.append(element('span','',`${place.area} / ${place.category}`),element('h3','',place.name),element('p','',place.note),element('p','place-address',place.address),mapLink(place));
     list.append(card);
   }
 }

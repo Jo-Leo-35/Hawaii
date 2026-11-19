@@ -8,7 +8,7 @@ ROOT = Path(__file__).resolve().parents[1]
 STATUSES = {"planned", "pending", "confirmed", "optional"}
 OWNERS = {"Leon", "Tyson"}
 ALLOWED_HOSTS = {
-    "www.gojumphawaii.com", "www.honolulu.gov", "www.kualoa.com",
+    "gojump-hawaii.com", "www.honolulu.gov", "www.kualoa.com",
     "funergygroup.com", "dolphinsandyou.com", "www.avis.com",
     "www.tablecheck.com", "esta.cbp.dhs.gov", "www.enterprise.com",
 }
@@ -31,26 +31,49 @@ def url(value):
     require(parsed.scheme == "https" and parsed.hostname in ALLOWED_HOSTS, "Resource must use an approved official HTTPS host")
     require(not parsed.query and not parsed.fragment and not parsed.username, "Use clean public resource URLs without account or booking parameters")
 
+def map_url(value):
+    text(value)
+    parsed = urlparse(value)
+    require(parsed.scheme == "https" and parsed.netloc == "www.google.com", "Map links must use the public Google Maps host")
+    require(parsed.path.startswith("/maps/place/") and re.search(r"!1s0x[0-9a-f]+:0x[0-9a-f]+", parsed.path), "Use an exact checked Google Maps place, not a name search")
+    require(not parsed.query and not parsed.fragment, "Remove account, search and tracking parameters from map links")
+    coordinates = re.search(r"!3d(-?[\d.]+)!4d(-?[\d.]+)", parsed.path)
+    require(coordinates is not None, "Map listing needs its actual destination coordinates")
+    lat, lon = map(float, coordinates.groups())
+    require(21.2 <= lat <= 21.75 and -158.35 <= lon <= -157.6, "Destination must be on Oahu")
+
 def validate(data):
     fields(data, {"title", "travelers", "days", "checklist", "places", "resources"})
     text(data["title"])
     require(data["travelers"] == ["Leon", "Tyson"], "Only the public aliases Leon and Tyson are allowed")
+    require(isinstance(data["places"], list), "Places must be an array")
+    place_ids = set()
+    lodging_ids = set()
+    for place in data["places"]:
+        fields(place, {"id", "name", "area", "category", "note", "address", "mapUrl"})
+        for value in place.values():
+            text(value)
+        require(re.fullmatch(r"[a-z][a-z0-9-]*", place["id"]) and place["id"] not in place_ids, "Use unique stable place IDs")
+        place_ids.add(place["id"])
+        if place["category"] == "住宿":
+            lodging_ids.add(place["id"])
+        map_url(place["mapUrl"])
     require(isinstance(data["days"], list) and len(data["days"]) == 8, "Keep exactly eight relative days")
     for number, day in enumerate(data["days"], 1):
-        fields(day, {"id", "shortTitle", "title", "area", "summary", "transport", "image", "imageAlt", "stops", "note"})
+        fields(day, {"id", "shortTitle", "title", "area", "summary", "transport", "image", "imageAlt", "stops", "note", "lodging"})
         require(day["id"] == f"day-{number}", "Use day-1 through day-8 in order")
         for key in ("shortTitle", "title", "area", "summary", "transport", "imageAlt", "note"):
             text(day[key])
         require(day["image"] in {"./assets/waikiki.jpg", "./assets/kualoa-ranch.jpg", "./assets/hanauma-bay.jpg"}, "Image must be a reviewed local asset")
         require(isinstance(day["stops"], list) and day["stops"], "Each day needs at least one stop")
+        require(isinstance(day["lodging"], list) and day["lodging"] and all(id in lodging_ids for id in day["lodging"]), "Lodging must refer to public hotel entries")
         for stop in day["stops"]:
-            fields(stop, {"period", "name", "note", "status"}, {"mapQuery", "url"})
+            fields(stop, {"period", "name", "note", "status"}, {"placeId", "url"})
             for key in ("period", "name", "note"):
                 text(stop[key])
             require(stop["status"] in STATUSES, "Unknown stop status")
-            if "mapQuery" in stop:
-                text(stop["mapQuery"])
-                require(not re.search(r"hotel|garden inn|private residence", stop["mapQuery"], re.I), "Do not publish lodging or private pickup points")
+            if "placeId" in stop:
+                require(stop["placeId"] in place_ids, "Stop must refer to an existing checked place")
             if "url" in stop:
                 url(stop["url"])
     require(isinstance(data["checklist"], list), "Checklist must be an array")
@@ -62,12 +85,6 @@ def validate(data):
         require(task["status"] in STATUSES, "Unknown task status")
         if "url" in task:
             url(task["url"])
-    require(isinstance(data["places"], list), "Places must be an array")
-    for place in data["places"]:
-        fields(place, {"name", "area", "category", "note", "mapQuery"})
-        for value in place.values():
-            text(value)
-        require(not re.search(r"hotel|garden inn|private residence", place["mapQuery"], re.I), "Do not publish lodging or private pickup points")
     for resource in data["resources"]:
         fields(resource, {"title", "note", "url"})
         text(resource["title"])

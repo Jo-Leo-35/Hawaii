@@ -1,5 +1,4 @@
 """Guard the public data boundary against common editing mistakes."""
-import copy
 import json
 import unittest
 from validate import ROOT, validate
@@ -41,8 +40,41 @@ class PublicDataTest(unittest.TestCase):
         with self.assertRaises(ValueError):
             validate(self.data)
 
-    def test_private_lodging_map_is_rejected(self):
-        self.data["places"][0]["mapQuery"] = "Example Hotel Honolulu"
+    def test_generic_map_search_is_rejected(self):
+        self.data["places"][0]["mapUrl"] = "https://www.google.com/maps/search/?api=1&query=Musubi+Waikiki"
+        with self.assertRaises(ValueError):
+            validate(self.data)
+
+    def test_unknown_stop_destination_is_rejected(self):
+        self.data["days"][0]["stops"][0]["placeId"] = "missing-location"
+        with self.assertRaises(ValueError):
+            validate(self.data)
+
+    def test_maps_account_parameters_are_rejected(self):
+        self.data["places"][0]["mapUrl"] += "?authuser=0"
+        with self.assertRaises(ValueError):
+            validate(self.data)
+
+    def test_wrong_island_is_rejected(self):
+        self.data["places"][0]["mapUrl"] = self.data["places"][0]["mapUrl"].replace("!3d21.", "!3d20.")
+        with self.assertRaises(ValueError):
+            validate(self.data)
+
+    def test_duplicate_place_ids_are_rejected(self):
+        self.data["places"][1]["id"] = self.data["places"][0]["id"]
+        with self.assertRaises(ValueError):
+            validate(self.data)
+
+    def test_public_hotels_are_allowed(self):
+        validate(self.data)
+        places = {p["id"]:p for p in self.data["places"]}
+        self.assertEqual(self.data["days"][0]["lodging"], ["stay"])
+        self.assertEqual(self.data["days"][2]["lodging"], ["stay", "hilton"])
+        self.assertEqual(places["stay"]["address"], "2424 Koa Avenue, Honolulu, HI 96815")
+        self.assertEqual(places["hilton"]["address"], "2330 Kuhio Avenue, Honolulu, HI 96815")
+
+    def test_hotel_reference_must_be_lodging(self):
+        self.data["days"][0]["lodging"] = ["gojump"]
         with self.assertRaises(ValueError):
             validate(self.data)
 
