@@ -7,6 +7,7 @@ from urllib.parse import urlparse
 ROOT = Path(__file__).resolve().parents[1]
 STATUSES = {"planned", "pending", "confirmed", "optional"}
 OWNERS = {"Leo", "Tyson"}
+PUBLIC_IMAGES = {'./assets/places/toriton.jpg', './assets/places/sweet.jpg', './assets/places/patagonia.jpg', './assets/places/lulus.jpg', './assets/places/coffee.jpg', './assets/places/rainbow.jpg', './assets/places/market.png', './assets/places/dukes.jpg', './assets/kualoa-ranch.jpg', './assets/places/kaimana.jpg', './assets/places/dolphins.webp', './assets/hanauma-bay.jpg', './assets/places/ray.jpg', './assets/places/tamafuji.jpg', './assets/places/stay.jpg', './assets/places/ihop.jpg', './assets/waikiki.jpg', './assets/places/hilton.jpg', './assets/places/kualoa.jpg', './assets/places/ala.jpg', './assets/places/ono.jpg', './assets/places/gio-north.jpg', './assets/places/jenny.jpg', './assets/places/gio-city.jpg', './assets/places/asahi.jpg', './assets/places/ice.jpg', './assets/places/garden.jpg', './assets/places/gojump.webp', './assets/places/hanauma.jpg', './assets/hero-oahu.webp', './assets/places/musubi.jpg', './assets/places/maguro.jpg', './assets/places/leonards.jpg'}
 ALLOWED_HOSTS = {
     "gojump-hawaii.com", "www.honolulu.gov", "www.kualoa.com",
     "funergygroup.com", "dolphinsandyou.com", "www.avis.com",
@@ -50,7 +51,7 @@ def validate(data):
     place_ids = set()
     lodging_ids = set()
     for place in data["places"]:
-        fields(place, {"id", "name", "area", "category", "note", "address", "mapUrl"})
+        fields(place, {"id", "name", "area", "category", "note", "address", "mapUrl"}, {"image", "imageAlt", "imageCaption"})
         for value in place.values():
             text(value)
         require(re.fullmatch(r"[a-z][a-z0-9-]*", place["id"]) and place["id"] not in place_ids, "Use unique stable place IDs")
@@ -58,13 +59,15 @@ def validate(data):
         if place["category"] == "住宿":
             lodging_ids.add(place["id"])
         map_url(place["mapUrl"])
+        if "image" in place:
+            require(place["image"] in PUBLIC_IMAGES and "imageAlt" in place, "Use reviewed local place images with alt text")
     require(isinstance(data["days"], list) and len(data["days"]) == 8, "Keep exactly eight relative days")
     for number, day in enumerate(data["days"], 1):
         fields(day, {"id", "shortTitle", "title", "area", "summary", "transport", "image", "imageAlt", "stops", "note", "lodging"})
         require(day["id"] == f"day-{number}", "Use day-1 through day-8 in order")
         for key in ("shortTitle", "title", "area", "summary", "transport", "imageAlt", "note"):
             text(day[key])
-        require(day["image"] in {"./assets/waikiki.jpg", "./assets/kualoa-ranch.jpg", "./assets/hanauma-bay.jpg"}, "Image must be a reviewed local asset")
+        require(day["image"] in PUBLIC_IMAGES, "Image must be a reviewed local asset")
         require(isinstance(day["stops"], list) and day["stops"], "Each day needs at least one stop")
         require(isinstance(day["lodging"], list) and day["lodging"] and all(id in lodging_ids for id in day["lodging"]), "Lodging must refer to public hotel entries")
         for stop in day["stops"]:

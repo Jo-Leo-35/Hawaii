@@ -3,6 +3,16 @@ const statusLabels = {planned:'行程安排',pending:'待確認',confirmed:'已�
 let trip;
 let currentDay = 0;
 let ownerFilter = 'all';
+let placeCategory = 'all';
+let showAllPlaces = false;
+const categories = [
+  {name:'美食',value:'餐飲',icon:'fork-knife',color:'#ff6200'},
+  {name:'購物',value:'購物',icon:'shopping-bag',color:'#7951e8'},
+  {name:'住宿',value:'住宿',icon:'bed',color:'#edb000'},
+  {name:'交通',value:'交通',icon:'bus',color:'#0999e9'},
+  {name:'自然',value:'自然',icon:'mountains',color:'#1a9e59'},
+  {name:'活動',value:'活動',icon:'person-simple-run',color:'#ef5a77'},
+];
 
 function element(tag, className, text) {
   const node = document.createElement(tag);
@@ -11,6 +21,15 @@ function element(tag, className, text) {
   return node;
 }
 function badge(status) { return element('span', `status status-${status}`, statusLabels[status] || statusLabels.planned); }
+function icon(name) {
+  const image = element('img','icon');
+  image.src = `./assets/icons/${name}.svg`;image.alt='';return image;
+}
+function placePhoto(place, className) {
+  if (!place?.image) return null;
+  const image=element('img',className);image.src=place.image;image.alt=place.imageAlt;
+  image.loading='lazy';image.width=640;image.height=400;return image;
+}
 function publicLink(label, href, className='official-link') {
   const url = new URL(href);
   if (url.protocol !== 'https:') throw new Error('Only HTTPS resources are allowed');
@@ -63,16 +82,20 @@ function renderDay(index, focus=false) {
   for (const stop of day.stops) {
     const row = element('article','stop');
     row.append(element('div','stop-time',stop.period));
+    const card = element('div','stop-card');
     const copy = element('div');
     copy.append(element('h4','',stop.name),element('p','',stop.note));
     const place = stop.placeId ? placeById(stop.placeId) : null;
     if (place) copy.append(element('p','place-address',place.address));
+    if (place?.imageCaption) copy.append(element('p','photo-note',place.imageCaption));
     if (stop.status !== 'planned') copy.append(badge(stop.status));
-    row.append(copy);
+    const image=placePhoto(place,'stop-photo');
+    if(image)card.append(image); else card.classList.add('without-photo');
+    card.append(copy);
     const actions = element('div','stop-actions');
     if (place) actions.append(mapLink(place));
     if (stop.url) actions.append(publicLink('官方資訊',stop.url));
-    row.append(actions); stops.append(row);
+    card.append(actions);row.append(card);stops.append(row);
   }
   panel.append(stops,element('p','day-note',day.note));
   if (focus) $(`#tab-${day.id}`).focus();
@@ -120,12 +143,41 @@ function renderFilters(){
 function renderPlaces(){
   const query=$('#place-search').value.trim().toLocaleLowerCase();
   const list=$('#place-list');list.replaceChildren();
-  const places=trip.places.filter(place=>`${place.name} ${place.area} ${place.note} ${place.address}`.toLocaleLowerCase().includes(query));
+  const matches=trip.places.filter(place=>(placeCategory==='all'||(placeCategory==='自然'?['海灘','景點','自然'].includes(place.category):place.category===placeCategory))&&`${place.name} ${place.area} ${place.note} ${place.address}`.toLocaleLowerCase().includes(query));
+  const filtered=Boolean(query)||placeCategory!=='all';
+  const places=filtered||showAllPlaces?matches:['gojump','hanauma','kualoa','dolphins'].map(placeById);
+  $('#places-title').textContent=filtered?'探索收藏':showAllPlaces?'所有景點收藏':'想去的地方';
+  $('#place-count').textContent=filtered?`${matches.length} 個符合的地點`:`${showAllPlaces?trip.places.length:4} 個${showAllPlaces?'地點':'精選活動'}`;
+  $('#show-all-places').textContent=showAllPlaces&&!filtered?'顯示精選':'查看全部收藏';
+  $('#clear-place-filters').hidden=!filtered;
+  for(const button of document.querySelectorAll('.category-button'))button.setAttribute('aria-pressed',String(button.dataset.category===placeCategory));
   $('#place-empty').hidden=places.length>0;
   for(const place of places){
     const card=element('article','place-card');
-    card.append(element('span','',`${place.area} / ${place.category}`),element('h3','',place.name),element('p','',place.note),element('p','place-address',place.address),mapLink(place));
+    const image=placePhoto(place,'place-photo');
+    if(image){
+      const link=publicLink('',place.mapUrl,'card-image');link.setAttribute('aria-label',`${place.name}：查看 Google Maps（另開分頁）`);link.append(image);card.append(link);
+    }
+    const body=element('div','card-body');
+    body.append(element('span','place-category',`${place.area} / ${place.category}`),element('h3','',place.name),element('p','',place.note),element('p','place-address',place.address),mapLink(place));
+    if (place.imageCaption) body.insertBefore(element('p','photo-note',place.imageCaption),body.lastChild);
+    card.append(body);
     list.append(card);
+  }
+}
+function clearPlaceFilters(){
+  placeCategory='all';$('#place-search').value='';$('#hero-query').value='';
+}
+function selectNav(target){
+  document.querySelectorAll('.header nav a').forEach(a=>a.classList.toggle('active',a.getAttribute('href')===target));
+}
+function renderCategories(){
+  for(const category of categories){
+    const button=element('button','category-button');button.type='button';button.dataset.category=category.value;button.setAttribute('aria-pressed','false');
+    const tile=element('span','category-icon');tile.style.backgroundColor=category.color;tile.append(icon(category.icon));
+    button.append(tile,element('strong','',category.name));
+    button.addEventListener('click',()=>{placeCategory=placeCategory===category.value?'all':category.value;showAllPlaces=true;renderPlaces();selectNav('#places');$('#places').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});});
+    $('#categories').append(button);
   }
 }
 async function init(){
@@ -134,8 +186,12 @@ async function init(){
     if(!response.ok)throw new Error('Trip data unavailable');
     trip=await response.json();
     if(!Array.isArray(trip.days)||trip.days.length!==8)throw new Error('Invalid trip data');
-    renderTabs();renderDay(0);renderFilters();renderTasks();renderPlaces();
+    renderTabs();renderDay(0);renderFilters();renderTasks();renderCategories();renderPlaces();
     $('#place-search').addEventListener('input',renderPlaces);
+    $('#hero-search').addEventListener('submit',event=>{event.preventDefault();$('#place-search').value=$('#hero-query').value;placeCategory='all';showAllPlaces=true;renderPlaces();selectNav('#places');$('#places').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});});
+    $('#show-all-places').addEventListener('click',()=>{const filtered=placeCategory!=='all'||$('#place-search').value.trim();showAllPlaces=filtered||!showAllPlaces;clearPlaceFilters();renderPlaces();});
+    $('#clear-place-filters').addEventListener('click',()=>{clearPlaceFilters();showAllPlaces=true;renderPlaces();});
+    for(const link of document.querySelectorAll('.header a'))link.addEventListener('click',()=>selectNav(link.getAttribute('href')==='#top'?'#itinerary':link.getAttribute('href')));
     for(const resource of trip.resources){
       const card=element('article','resource');
       card.append(element('h3','',resource.title),element('p','',resource.note),publicLink('前往官方網站',resource.url,''));

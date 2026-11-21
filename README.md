@@ -1,6 +1,6 @@
 # Hawaii Guide · Leo & Tyson
 
-只包含歐胡島的公開旅行指南：Day 1–8、景點 Google Maps 按鈕、行前分工及官方參考連結。Leo 維護，Tyson 查看。頁面沿用原旅行規劃的白底橘色視覺與已核對來源的景點照片，公開資料獨立整理。
+只包含歐胡島的公開旅行指南：Day 1–8、景點 Google Maps 按鈕、行前分工及官方參考連結。Leo 維護，Tyson 查看。頁面沿用原 travel-atlas 的山海主視覺、白底橘色、Phosphor 分類圖示、搜尋列與照片卡片；每日行程優先呈現，公開資料獨立整理。
 
 ## 修改行程：只改一個檔案
 
@@ -13,7 +13,7 @@
 | 每日景點與地圖 | `stops` 的 `placeId`，對應下方 `places` 的 `id` |
 | 每日飯店 | `lodging`，填飯店在 `places` 的 `id`；換飯店日可填兩個 |
 | 分工與進度 | `checklist` 內的 `owners`、`status`、`note` |
-| 景點、美食、飯店與地址 | `places`；`mapUrl` 使用核對過的 Google Maps 地點頁 |
+| 景點、美食、飯店與地址 | `places`；`mapUrl` 使用核對過的 Google Maps 地點頁，`image`／`imageAlt` 為已審查的本機照片 |
 | 官方資源 | `resources` |
 
 `owners` 只能使用 `Leo`、`Tyson`。`status` 可使用：
@@ -34,6 +34,8 @@
   "placeId": "kaimana"
 }
 ```
+
+首頁先顯示 Day 1–8。山海主圖的搜尋、六種分類和「查看全部收藏」可查閱景點；預設收藏顯示四個主要活動。
 
 網站不提供訪客編輯，也不把個人瀏覽器的勾選當成共用進度。每個人看到的是已發布的資料版本。
 
@@ -72,4 +74,4 @@ python3 -m http.server 8080 --directory dist
 
 部署內容由明確的檔案清單產生在 `dist/`，不會把整個工作目錄打包。
 
-程式碼：MIT License。照片來源與授權見 [`CREDITS.html`](CREDITS.html)。
+程式碼：MIT License；圖片不隨程式碼授權。Phosphor Icons 授權保留在 `assets/icons/LICENSE.txt`。照片來源與授權見 [`CREDITS.html`](CREDITS.html)。

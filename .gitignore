@@ -8,3 +8,6 @@ __pycache__/
 *.key
 .ssh/
 auth/
+
+# Local visual review contains workstation screenshot paths.
+design-qa.md
